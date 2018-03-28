@@ -46,6 +46,8 @@
     <color name="colorBottomNavigationNotification">#F63D2B</color>
 
 
+    <color name="optionGreen">#80a4c639</color>
+    <color name="optionRed">#40e60000</color>
 
     <color name="color_notification_back">#ffcd33</color>
     <color name="color_notification_text">#3E4757</color>

@@ -98,13 +98,13 @@ public class TestActivityDrawerFragment extends Fragment implements QuestionMenu
         getmDrawerLayout().closeDrawer(Gravity.END);
         if(testActivityDrawerClosedListener!=null)
         {
-            testActivityDrawerClosedListener.onDrawerClosed(position);
+            testActivityDrawerClosedListener.onDrawerClosed(view,position);
         }
 
     }
 
     public interface TestActivityDrawerClosedListener
     {
-        void onDrawerClosed(int position);
+        void onDrawerClosed(View view,int position);
     }
 }

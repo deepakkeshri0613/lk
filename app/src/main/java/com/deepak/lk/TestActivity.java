@@ -32,13 +32,14 @@ import static android.graphics.Color.*;
 public class TestActivity extends AppCompatActivity implements QuestionNumAdapter.ClickListener,QuestionSwipeAdapter.ClickListener,
         QuestionMenuAdapter.ClickListener,TestActivityDrawerFragment.TestActivityDrawerClosedListener{
 
+    int currentPosition=0;
     int previousPosition=0;
     QuestionFetch questionFetch;
     ViewPager viewPager;
     QuestionSwipeAdapter adapter;
     Resources resources;
     QuestionNumAdapter questionNumAdapter;
-
+    RecyclerView recyclerView;
     TestActivityDrawerFragment drawerFragment;
 
     @Override
@@ -65,7 +66,7 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
         drawerFragment.setDrawerClosedListener(this);
 
         resources=getResources();
-        final RecyclerView recyclerView=findViewById(R.id.question_number_recycler_view);
+        recyclerView=findViewById(R.id.question_number_recycler_view);
         questionNumAdapter=new QuestionNumAdapter(this);
         questionNumAdapter.setOnClickListener(this);
         recyclerView.setAdapter(questionNumAdapter);
@@ -82,7 +83,6 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
 
             }
 
-            @SuppressLint("ResourceAsColor")
             @Override
             public void onPageSelected(int position) {
 
@@ -95,13 +95,15 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
                 }
                 previousPosition = position;
 
+                currentPosition=position;
                 RecyclerView.ViewHolder viewHolder=recyclerView.findViewHolderForAdapterPosition(position);
 
                 if(viewHolder!=null)
-                      viewHolder.itemView.setBackgroundColor(R.color.lightGrey);
+                      viewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.goodgrey));
                 else
                 {
                     recyclerView.smoothScrollToPosition(position);
+                   // viewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.redDark));
 
                 }
 
@@ -138,48 +140,59 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
     public void onBackPressed() {
         super.onBackPressed();
     }
-
-
     @Override
     public void optionItemClick(View view,int currentIndex) {
         View solutionHolder=viewPager.findViewWithTag("solutionHolder"+viewPager.getCurrentItem());
         Toast.makeText(this,""+currentIndex,Toast.LENGTH_SHORT).show();
+        RecyclerView.ViewHolder questionNumViewHolder=recyclerView.findViewHolderForAdapterPosition(currentPosition);
         switch (view.getId())
         {
             case R.id.question_option1_holder :
                 if(currentIndex==0)
-                {view.setBackgroundColor(getResources().getColor(R.color.blue));}
+                {view.setBackgroundColor(getResources().getColor(R.color.optionGreen));
+
+                questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionGreen));
+
+                }
                 else
-                {view.setBackgroundColor(getResources().getColor(R.color.redDark));
+                {view.setBackgroundColor(getResources().getColor(R.color.optionRed));
+                    questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionRed));
                     solutionHolder.setVisibility(View.VISIBLE);
+
                 }
                 break;
             case R.id.question_option2_holder:
                 if(currentIndex==1)
-                {view.setBackgroundColor(getResources().getColor(R.color.blue));
+                {view.setBackgroundColor(getResources().getColor(R.color.optionGreen));
+                    questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionGreen));
+
                 }
                 else
-                {view.setBackgroundColor(getResources().getColor(R.color.redDark));
+                {view.setBackgroundColor(getResources().getColor(R.color.optionRed));
+                    questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionRed));
                     solutionHolder.setVisibility(View.VISIBLE);
                 }
                 break;
             case R.id.question_option3_holder:
                 if(currentIndex==2)
-                {view.setBackgroundColor(getResources().getColor(R.color.blue));
-
+                {view.setBackgroundColor(getResources().getColor(R.color.optionGreen));
+                    questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionGreen));
                 }
                 else
-                {view.setBackgroundColor(getResources().getColor(R.color.redDark));
+                {view.setBackgroundColor(getResources().getColor(R.color.optionRed));
+                    questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionRed));
                     solutionHolder.setVisibility(View.VISIBLE);
                 }
                 break;
             case R.id.question_option4_holder:
                 if(currentIndex==3)
                 {
-                    view.setBackgroundColor(getResources().getColor(R.color.blue));
+                    view.setBackgroundColor(getResources().getColor(R.color.optionGreen));
+                    questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionGreen));
                 }
                 else
-                {view.setBackgroundColor(getResources().getColor(R.color.redDark));
+                {view.setBackgroundColor(getResources().getColor(R.color.optionRed));
+                    questionNumViewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.optionRed));
                     solutionHolder.setVisibility(View.VISIBLE);
                 }
                 break;
@@ -193,7 +206,8 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
     }
 
     @Override
-    public void onDrawerClosed(int position) {
+    public void onDrawerClosed(View view,int position) {
+        
         viewPager.setCurrentItem(position);
     }
 }
