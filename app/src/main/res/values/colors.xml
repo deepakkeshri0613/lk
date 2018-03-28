@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#333333</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="lightGrey">#f2f2f2</color>
+    <color name="lightGrey1">#e6e6e6</color>
+    <color name="lightGrey2">#d9d9d9</color>
+    <color name="lightGrey3">#d3d3d3</color>
+    <color name="yellow">#ffff00</color>
+    <color name="darkyellow">#EEE8AA</color>
+    <color name="colorBackground">#F8F8F8</color>
+    <color name="colorNavAccentSelected">#00ace6</color>
+    <color name="colorNavAccentUnselected">#727272</color>
+    <color name="darkpink">#99004d</color>
+    <color name="lightbule">#009999</color>
+    <color name="blue">#006699</color>
+    <color name="darkgrey">#595959</color>
+    <color name="lightgrey">#808080</color>
+    <color name="goodgrey">#666699</color>
+    <color name="goodgreybackground"> #b3b3cc</color>
+    <color name="goodgreycard">#8585ad</color>
+    <color name="goodgreydark">#5c5c8a</color>
+    <color name="goodgreytransprient">#cc666699</color>
+    <color name="divider_color">#c0c0c0</color>
+
+    <color name="lightBlack">#404040</color>
+
+
+    <color name="redDark">#9D0E15</color>
+    <color name="white">#ffffff</color>
+
+
+
+
+    <color name="colorBottomNavigationPrimary">#3F51B5</color>
+    <color name="colorBottomNavigationPrimaryDark">#303F9F</color>
+    <color name="colorBottomNavigationAccent">#FF4081</color>
+    <color name="colorBottomNavigationInactive">#747474</color>
+    <color name="colorBottomNavigationDisable">#3A000000</color>
+    <color name="colorBottomNavigationActiveColored">#FFFFFF</color>
+    <color name="colorBottomNavigationInactiveColored">#50FFFFFF</color>
+    <color name="colorBottomNavigationSelectedBackground">#17000000</color>
+    <color name="colorBottomNavigationNotification">#F63D2B</color>
+
+
+
+    <color name="color_notification_back">#ffcd33</color>
+    <color name="color_notification_text">#3E4757</color>
+
+    <array name="tab_colors">
+        <item name="tab_1">#455C65</item>
+        <item name="tab_2">#00886A</item>
+        <item name="tab_3">#8B6B62</item>
+        <item name="tab_4">#6C4A42</item>
+        <item name="tab_5">#F63D2B</item>
+    </array>
+
+    <array name="colours">
+        <item>#666699</item>
+        <item>#d07b73</item>
+        <item>#36a151</item>
+        <item>#501c55</item>
+        <item>#d98eaf</item>
+        <item>#717527</item>
+        <item>#59afc8</item>
+        <item>#904930</item>
+        <item>#18473a</item>
+        <item>#9b5734</item>
+    </array>
+    
+    <array name="dashboard_card_color">
+        <item>@color/blue</item>
+        <item>@color/redDark</item>
+        <item>@color/goodgrey</item>
+    </array>
+</resources>

@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MainActivityTheme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="TestInterfaceTheme" parent="AppTheme">
+
+    </style>
+
+
+    <style name="textColorPracticePage">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="title">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="title.expanded">
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="title.collapsed">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="subtitle">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="textColor">
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
+
+    <style name="HorizontalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+    <style name="VetricalDivider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+</resources>

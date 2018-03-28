@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_us">About Us</string>
+    <string name="about_us_moto">WE CAN CHANGE SOMETHING.</string>
+    <string name="about_us_moto_explain">Nucleons provide online test platform for students who are preparing for any competitive examination and help them to boost their prepartion.\nNucleons also provide platform for Institutes which help them to provide practics questions or assignments to their students. They can even conduct online test examination on real interface. </string>
+    <string name="about_us_mission">Our Mission</string>
+    <string name="about_us_mission_explain">To help students to clear their competitive examination so they can get better life.\n
+To help institutes to manage their students performance so they can get better results.</string>
+    <string name="about_us_vision">Our Vision</string>
+    <string name="about_us_vision_explain">Our vision is to bring Autonomous Education System. Which students can think "independently" and find scientific solutions to the country's problems.\n
+        We know we can't bring it alone but <b>We Can Change Something</b>.</string>
+    <string name="about_us_come_visit">COME VISIT US</string>
+    <string name="about_us_visit_detail"> Office Time 8:00 AM TO 10:00 PM
+
+I-690 I Block
+Govindpuram Ghaziabad,
+Helpline: 8800904192</string>
+
+</resources>

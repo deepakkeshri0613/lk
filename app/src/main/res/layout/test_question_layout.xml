@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGrey"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="#fff"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:elevation="3dp"
+            android:divider="?android:dividerHorizontal"
+            android:showDividers="middle"
+            android:dividerPadding="12dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                >
+            <TextView
+                android:id="@+id/question_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"/>
+                <TextView
+                    android:id="@+id/negative_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-ve mark "
+                    android:textStyle="italic|bold"
+
+                    android:layout_toLeftOf="@+id/negative_mark"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginTop="4dp"/>
+                <TextView
+                    android:id="@+id/negative_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="0"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="4dp"
+                    />
+
+            </RelativeLayout>
+            <TextView
+                android:textColor="@color/textColorPrimary"
+                android:textSize="17dp"
+                android:id="@+id/question_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                />
+
+        </LinearLayout>
+
+        <!--     Question Options      -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/question_option1_holder"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/custom_ripple_effect"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:elevation="1dp"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1."
+                    android:layout_marginLeft="8dp"/>
+                <TextView
+                    android:id="@+id/question_option1"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deepak"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/question_option2_holder"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/custom_ripple_effect"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:elevation="1dp"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2."
+                    android:layout_marginLeft="8dp"/>
+                <TextView
+                    android:id="@+id/question_option2"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deepak"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/question_option3_holder"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/custom_ripple_effect"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:elevation="1dp"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3."
+                    android:layout_marginLeft="8dp"/>
+                <TextView
+                    android:id="@+id/question_option3"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deepak"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/question_option4_holder"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/custom_ripple_effect"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:elevation="1dp"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4."
+                    android:layout_marginLeft="8dp"/>
+                <TextView
+                    android:id="@+id/question_option4"
+                    android:layout_marginLeft="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deepak"/>
+
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+        </LinearLayout>
+
+        <!--        alternative     layout   -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:layout_marginTop="10dp"
+            android:divider="?android:dividerHorizontal"
+            android:showDividers="middle"
+            android:dividerPadding="16dp"
+            android:id="@+id/question_solution_holder"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solution"
+                android:textStyle="italic"
+                android:layout_margin="13dp"
+                android:textSize="17dp"
+                android:textColor="@color/textColorPrimary"/>
+            <TextView
+                android:id="@+id/question_solution"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="15dp"
+                android:text="@string/dummy_text"
+                android:textColor="@color/textColorPrimary"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

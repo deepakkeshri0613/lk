@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">NEOLEN</string>
+    <string name="srn_drawer_close">Close</string>
+    <string name="srn_drawer_open">Open</string>
+    <string name="srn_ex_no_menu_view">No view for menu provided. You must either call .withMenuView(View) or pass a valid resource id to .withMenuLayout(int)</string>
+    <string name="srn_ex_bad_content_view">Your content view must contain exactly one child. Make sure you call inject() after setContentView().</string>
+    <string name="course_name">Course</string>
+    <string name="balance_currency">$</string>
+    <string name="user_name">Deepak keshri</string>
+    <string name="about_us_menu_button">About Us</string>
+    <string name="passwordHint">Password</string>
+    <string name="emailHint">Email/Mobile</string>
+    <string name="loginButton">Login</string>
+    <string name="forgotPassword">Forgot Password ?</string>
+    <string name="signupButton">Sign up</string>
+    <string name="sign_up_email">Email</string>
+    <string name="sign_up_mob">Mobile</string>
+    <string name="sign_up_password">Password</string>
+    <string name="sign_up_name">Name</string>
+    <string name="fb_login_id">392683664458217</string>
+
+
+    <string name="tab_1">Home</string>
+    <string name="tab_2">Practice</string>
+    <string name="tab_3">Notifications</string>
+    <string name="tab_4">Chat</string>
+
+    <string name="menu_1">Menu 1</string>
+    <string name="menu_2">Menu 2</string>
+    <string name="menu_3">Menu 3</string>
+    <string name="menu_4">Menu 4</string>
+
+
+    <string name="dummy_text">Dnfjhb k gkjhkl jgk jkh ljljkj h lb lhkh k hljkh khk hk  hkh kh
+    kh khkjl ljh lhlhkh
+    h khkh kj
+    h khk h
+    h kjh
+        lskdhjdskl z,j mhidknzx c,
+
+    </string>
+    <string name="title_activity_chapter">ChapterActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+</resources>

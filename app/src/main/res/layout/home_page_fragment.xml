@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.amar.library.ui.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:nestedScrollingEnabled="true"
+    app:stickyHeader="@id/homepage_dashboard_title"
+    tools:context="com.deepak.lk.MainActivity">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/homepage_parent_layoutid"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+
+        >
+        <TextView
+            android:id="@+id/homepage_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@android:color/white"
+            />
+
+
+            />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:id="@+id/homepage_dashboard_title"
+        >
+        <TextView
+
+            android:text="Dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold|italic"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_margin="16dp">
+            <com.github.lzyzsd.circleprogress.ArcProgress
+                android:id="@+id/arc_progress1"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:arc_unfinished_color="@color/lightGrey2"
+                app:arc_finished_color="@color/white"
+                app:arc_bottom_text="Progress"
+                app:arc_bottom_text_size="15dp"
+                app:arc_text_color="@color/white"
+                app:arc_progress="40"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="8dp">
+            <com.github.lzyzsd.circleprogress.ArcProgress
+                android:id="@+id/arc_progress2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:arc_unfinished_color="@color/lightGrey2"
+                app:arc_finished_color="@color/white"
+                app:arc_bottom_text="Accuracy"
+                app:arc_text_color="@color/white"
+                app:arc_progress="60"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/homepage_innerLayout"/>
+
+    <!--    cardView     -->
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:text=" @Copy Right Protected"
+        />
+
+</LinearLayout>
+</com.amar.library.ui.StickyScrollView>

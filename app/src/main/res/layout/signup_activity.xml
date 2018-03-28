@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/bc2"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/sign_up_course_id"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:hint="course id"
+        android:background="@drawable/corner_shape"
+        />
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/sign_up_email"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:hint="@string/sign_up_email"
+        android:background="@drawable/corner_shape"
+        />
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/sign_up_name"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/sign_up_name"
+        android:background="@drawable/corner_shape"
+
+        />
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/sign_up_mob"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/sign_up_mob"
+        android:background="@drawable/corner_shape"
+        android:inputType="phone"
+        />
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/sign_up_password"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="@string/sign_up_password"
+        android:background="@drawable/corner_shape"
+        />
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/sign_up_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:hint="Confirm password"
+        android:background="@drawable/corner_shape"
+        />
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/signupButton"
+        android:background="@drawable/button_curve_shape"
+        android:onClick="signUp"
+        />
+
+
+
+    <Button
+        android:id="@+id/facebookloginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Connect with Facebook"
+        android:background="@drawable/button_curve_shape"
+        />
+    <Button
+        android:id="@+id/googleloginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Connect with Google"
+        android:background="@drawable/button_curve_shape"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an Account ? "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Login"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:onClick="loginTextClick"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

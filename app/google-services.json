@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "203678421414",
+    "project_id": "firebase-neolen"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203678421414:android:8e75ec9220e2ba6f",
+        "android_client_info": {
+          "package_name": "com.deepak.lk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203678421414-o2or4f9clf6guv7e00hgg164d5a0lq4m.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "203678421414-5ps3coloini3ekrp5bj4rpemta41o34t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deepak.lk",
+            "certificate_hash": "3e897c59f143dbaf3f3b74888a65e0f25f8bbae2"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhW04iXe5iZuy5n_ITlBUIC6GAuub5OAM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_activityScreenTitles">
+        <item>Home</item>
+        <item>Courses</item>
+        <item>Plan</item>
+        <item>Blog</item>
+        <item>Settings</item>
+        <item>Log Out</item>
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_home_outline_grey600_24dp</item>
+        <item>@drawable/ic_account_outline_grey600_24dp</item>
+        <item>@drawable/ic_email_outline_grey600_24dp</item>
+        <item>@drawable/ic_cart_outline_grey600_24dp</item>
+        <item>@drawable/ic_logout_grey600_24dp</item>
+        <item>@drawable/ic_logout_grey600_24dp</item>
+    </array>
+
+   <array name="id">
+    <item>@layout/card1</item>
+    <item>@layout/card2</item>
+    <item>@layout/dashboard_test_analysis_pie_chart</item>
+    <item>@layout/dashboard_question_analysis_chart</item>
+    <item>@layout/dashboard_accuracy_chart</item>
+    <item>@layout/dashboard_progress_chart</item>
+    </array>
+
+</resources>
