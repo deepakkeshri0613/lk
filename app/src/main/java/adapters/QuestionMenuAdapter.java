@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.deepak.lk.Question;
 import com.deepak.lk.R;
@@ -13,8 +14,6 @@ import com.libRG.CustomTextView;
 
 import java.util.Collections;
 import java.util.List;
-
-import datastore.ModuleDetail;
 
 /**
  * Created by dsk on 15-Mar-18.
@@ -30,11 +29,14 @@ public class QuestionMenuAdapter extends RecyclerView.Adapter<QuestionMenuAdapte
     ClickListener clickListener;
     List<Question> data= Collections.emptyList();
 
-    public QuestionMenuAdapter(Context context, List<Question> question)
+    public QuestionMenuAdapter(Context context, List<Question> data)
     {
         inflater = LayoutInflater.from(context);
-        this.data=question;
+
         this.context=context;
+        this.data=data;
+
+
     }
 
     public void setOnClickListener(ClickListener clickListener)
@@ -53,6 +55,9 @@ public class QuestionMenuAdapter extends RecyclerView.Adapter<QuestionMenuAdapte
     public void onBindViewHolder(QuestionMenuAdapter.PageViewHolder holder, int position) {
 
         holder.customTextView.setText(""+(position+1));
+
+
+        // here i m getting NPE
         holder.questionText.setText(data.get(position).getQuestion());
     }
 

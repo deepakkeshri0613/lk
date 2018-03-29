@@ -1,13 +1,10 @@
 package com.deepak.lk;
 
-import android.annotation.SuppressLint;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -22,8 +19,6 @@ import android.widget.Toast;
 import adapters.QuestionMenuAdapter;
 import adapters.QuestionNumAdapter;
 
-import static android.graphics.Color.*;
-
 
 /**
  * Created by dsk on 12-Mar-18.
@@ -34,7 +29,7 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
 
     int currentPosition=0;
     int previousPosition=0;
-    QuestionFetch questionFetch;
+    public QuestionFetch questionFetch;
     ViewPager viewPager;
     QuestionSwipeAdapter adapter;
     Resources resources;
@@ -59,10 +54,11 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_question_interface);
 
+
         questionFetch=new QuestionFetch();
         drawerFragment=(TestActivityDrawerFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.test_navigation_drawer_fragment);
-        drawerFragment.setUp((DrawerLayout) findViewById(R.id.test_drawer_layout),this.questionFetch);
+        drawerFragment.setUp((DrawerLayout) findViewById(R.id.test_drawer_layout),questionFetch.getQuestionList());
         drawerFragment.setDrawerClosedListener(this);
 
         resources=getResources();
@@ -70,7 +66,6 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
         questionNumAdapter=new QuestionNumAdapter(this);
         questionNumAdapter.setOnClickListener(this);
         recyclerView.setAdapter(questionNumAdapter);
-
         final RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(layoutManager);
         viewPager=findViewById(R.id.question_view_pager);
@@ -207,7 +202,7 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
 
     @Override
     public void onDrawerClosed(View view,int position) {
-        
+
         viewPager.setCurrentItem(position);
     }
 }

@@ -13,14 +13,11 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
 
 import adapters.QuestionMenuAdapter;
-import adapters.QuestionNumAdapter;
-import adapters.TopicMenuAdapter;
 
 
 /**
@@ -32,7 +29,7 @@ public class TestActivityDrawerFragment extends Fragment implements QuestionMenu
     TestActivityDrawerClosedListener testActivityDrawerClosedListener;
     private QuestionMenuAdapter adapter;
     private ActionBarDrawerToggle mDrawerToggle;
-    QuestionFetch questionFetch;
+    List<Question> data=Collections.emptyList();
     public TestActivityDrawerFragment() {
         // Required empty public constructor
     }
@@ -46,9 +43,9 @@ public class TestActivityDrawerFragment extends Fragment implements QuestionMenu
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        if(questionFetch==null)
-             questionFetch=new QuestionFetch();
-        adapter=new QuestionMenuAdapter(getActivity(),questionFetch.getQuestionList());
+
+        //data=new QuestionFetch().getQuestionList();
+        adapter=new QuestionMenuAdapter(getActivity(),data);
         adapter.setOnClickListener(this);
         return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
     }
@@ -62,9 +59,9 @@ public class TestActivityDrawerFragment extends Fragment implements QuestionMenu
         recyclerView.setLayoutManager(layoutManager);
     }
 
-    public void setUp( DrawerLayout drawerLayout,QuestionFetch questionFetch) {
+    public void setUp( DrawerLayout drawerLayout,List<Question> data) {
 
-        this.questionFetch=questionFetch;
+        this.data=data;
         mDrawerLayout=drawerLayout;
         mDrawerToggle=new ActionBarDrawerToggle(getActivity(),drawerLayout,R.string.drawer_open
                 ,R.string.drawer_close)
