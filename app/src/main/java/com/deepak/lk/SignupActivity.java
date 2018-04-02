@@ -72,7 +72,7 @@ public class SignupActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
-        serverUrl="https://www.neolen.com/api/android/auth/register";
+        serverUrl="http://dev.neolen.com/api/android/auth/register";
         userNameEditTextView=findViewById(R.id.sign_up_name);
         mobileNumberEditTextView=findViewById(R.id.sign_up_mob);
         passwordEditTextView=findViewById(R.id.sign_up_password);
@@ -267,9 +267,9 @@ public class SignupActivity extends AppCompatActivity {
 
                 Map<String,String> parms=new HashMap<String, String>();
                 parms.put("name",userName);
+                parms.put("lname","keshri");
                 parms.put("number",mobileNumber);
                 parms.put("email",email);
-                parms.put("course_id",courseId);
                 parms.put("password",password);
                 parms.put("password_confirmation",confirmPassword);
                 return parms;

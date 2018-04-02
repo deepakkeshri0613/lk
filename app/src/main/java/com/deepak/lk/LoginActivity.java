@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        serverUrl="https://www.neolen.com/api/android/auth/login";
+        serverUrl="http://dev.neolen.com/api/android/auth/login";
         preferences= PreferenceManager.getDefaultSharedPreferences(this);
         editor=preferences.edit();
         FacebookSdk.getSdkVersion();

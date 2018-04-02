@@ -33,7 +33,7 @@ public class RequestTransation {
     {
 
 
-                    stringRequest= new StringRequest(Request.Method.GET, serverUrl,
+                    stringRequest= new StringRequest(Request.Method.POST, serverUrl,
                     new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -57,13 +57,20 @@ public class RequestTransation {
                 networkResponseListener.parseJsonObjectOnError(error);
             }
         }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> headers = new HashMap<String, String>();
-                headers.put("Accept","application/json");
-                headers.put("Authorization",token);
-                return headers;
-            }
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            Map<String,String> headers = new HashMap<String, String>();
+                            headers.put("Accept","application/json");
+                            return headers;
+                        }
+                        @Override
+                        protected Map<String, String> getParams() {
+
+                            Map<String,String> parms=new HashMap<String, String>();
+                            parms.put("email","sumit@neolen.com");
+                            parms.put("password","Sumit@123");
+                            return parms;
+                        }
         };
 
         return stringRequest;
