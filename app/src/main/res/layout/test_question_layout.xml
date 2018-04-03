@@ -12,7 +12,7 @@
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="match_parent"
             android:background="#fff"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
@@ -55,12 +55,12 @@
                     />
 
             </RelativeLayout>
-            <TextView
+            <WebView
                 android:textColor="@color/textColorPrimary"
                 android:textSize="17dp"
                 android:id="@+id/question_data"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
                 />

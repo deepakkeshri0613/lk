@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Switch;
@@ -69,13 +70,13 @@ public class QuestionSwipeAdapter extends PagerAdapter implements View.OnClickLi
         Log.d(tag,"instantiateItemCalled called"+position);
         View itemView =layoutInflater.inflate(R.layout.test_question_layout,container,false);
         TextView questionNumber=itemView.findViewById(R.id.question_number);
-        TextView questionData=itemView.findViewById(R.id.question_data);
+        WebView questionData=itemView.findViewById(R.id.question_data);
 
 
         int questionNumberIndex=position+1;
         questionNumber.setText("Q "+questionNumberIndex);
         Question question= data.get(position);
-        questionData.setText(question.getQuestion());
+        questionData.loadData(question.getQuestion(),"text/html","UTF-8");
 
         int optionHolderid[]={R.id.question_option1_holder,R.id.question_option2_holder,
                 R.id.question_option3_holder,R.id.question_option4_holder};

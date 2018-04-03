@@ -16,8 +16,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.deepak.lk.network.RequestTransation;
+
+import org.json.JSONArray;
+
 import adapters.QuestionMenuAdapter;
 import adapters.QuestionNumAdapter;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 /**
@@ -36,7 +44,7 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
     QuestionNumAdapter questionNumAdapter;
     RecyclerView recyclerView;
     TestActivityDrawerFragment drawerFragment;
-//
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.chapter_menu,menu);
@@ -53,8 +61,6 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
         setTitle("Test");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_question_interface);
-
-
         questionFetch=new QuestionFetch();
         drawerFragment=(TestActivityDrawerFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.test_navigation_drawer_fragment);
@@ -205,4 +211,6 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
 
         viewPager.setCurrentItem(position);
     }
+
+
 }

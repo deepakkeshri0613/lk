@@ -12,6 +12,8 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,28 +27,27 @@ import java.util.Map;
 public class RequestTransation {
 
     public NetworkResponseListener networkResponseListener;
-    String token="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjUyODc1ODE0MzkyNTNiNzllMzY4YzVhNmUwODc4MmI5NzEwNWMzYWMyNGUwMWMxNjQ1OGRmYzZiZjlmMzk2OWQ1MjY2ZTlmZDVlNGYwZWM1In0.eyJhdWQiOiIxIiwianRpIjoiNTI4NzU4MTQzOTI1M2I3OWUzNjhjNWE2ZTA4NzgyYjk3MTA1YzNhYzI0ZTAxYzE2NDU4ZGZjNmJmOWYzOTY5ZDUyNjZlOWZkNWU0ZjBlYzUiLCJpYXQiOjE1MTg5NTEyOTgsIm5iZiI6MTUxODk1MTI5OCwiZXhwIjoxNTUwNDg3Mjk4LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.G6LHOiVHp_LD5liJeQsTNLLKwflUYWVyL6qjzXb9AGQVesDcBrfOPEAdARXFrwr_DrpTc5h0TQU3jYnOQFOxeSOm8d9Izq2GiZqmnC1-VfjMRvDvkiH4KRcLRzVgjIsb_w8g0U24tepXuizzR7yqbM3m1AbCm3Ik1gJiw0lX54by9LGssuUnS4o-58Jg1f3i-UkTruaHi62hScRP38-GSN4tzfO-F5wRPLDrvRU7h5KcgRGv_LWuhSme8zPu2Cs30FQ2ffQVzDGYURVGRpN0fL5qh8kdBPC5hcDAGX-yAJwALLEWCUB0KI4RhiTN1l3d8HAwNjqWsClarae0blnNxhqdF7Ov2CDKd-wm0R-JLQ9pa52eET-dpq6tqZ5owDU4W6qlC-ZUl0s0WUdAWjwyAX1ssIhAWSQryo7FlSzfK52fot0nQr-GolqfHC7b1LDAS13axAcUotIBGg79vV_isOy47Wiw8LZPcEOt_rr_1PhHyiJorc_vtQK1SGBfu76VDKta2jR3MX6XoLo0GMU6r-xam2LtLxLtj0NPHV5liAuqjcsYuzkBDKFtTIsFTebQNgTie1tu2_5TVGF4-2YhiVE7Xl1LAqXT6hoax8np55zxaqLsiQt3cVF1Xu8ZGSY5o69hNs3FWY8ePnM0PQZPM5IWHVqyDplGo2LJO2Caqm4";
-
+    String token="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImFjNjlhODk4YTE2OTJkZDU0MWIxN2FlOWMyYmQ5OWQ0NzI2ZTQzYTU1NmEwMGE1ZmQ5N2U1OGI1YzQ0NGUxMmU1MWZmMWUwZGQ1ZjBkNTk3In0.eyJhdWQiOiIxIiwianRpIjoiYWM2OWE4OThhMTY5MmRkNTQxYjE3YWU5YzJiZDk5ZDQ3MjZlNDNhNTU2YTAwYTVmZDk3ZTU4YjVjNDQ0ZTEyZTUxZmYxZTBkZDVmMGQ1OTciLCJpYXQiOjE1MjI2OTQyMjQsIm5iZiI6MTUyMjY5NDIyNCwiZXhwIjoxNTU0MjMwMjI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.h5o7ksiFJWZHbn0uuXOJC8R9zj74pNyB8ejuTEXAKjQF5_Yf9pFK0DUcZpRiqj4wIVM8X_D-vNaugIU6xbfP21ubRG37xNaalOqWcufBNhy35RbC3sBtho93DOwn01QOPsy9mNryO0iTwtCWWA9G-GfFh3pWEJeT7QWgzqqK5kyflDm5QmaYXUp4Z4g644miRbAjp5W0VGFpxn938ywafyna1dgyWQNYEkZHEhx5O7UUMOKbNs4KbSh-eCBlhXo80Flhq91UnHkQ8atq4ZjJc3DjSoLcPdNUFWbvh9ew7NQTYHyASzm8pNCEiAR3kiZJAbw2w20wWLfcRQe2WLl9avUUX5NWz1KsxArwTIbv28nlYejvB-6Fv4Lk4Yeo77ZjaJibKpYiCQtD88hKFKQAYuPZOtubq0_t4KDIyelPRYLT02eW3QAZ8dhiz3kWSZEmfwHXkhsHBKBqYmiOw9JH8PREwVDbPftdjKpSpIV17UxfCwRoJO1Bb7mc-Vj-yotPKnzjUcKGJY10uc9wqgqjrKtB1nLib37Btb0MOECIVB8r3EJNHIsWCWpAB-o-VmDS6fksshtwPT4zG41f-ehyTC6vSwKHMIMLCxcdRshI5Rf9bcHYzOKYKQSPjwPgszXzcam5dqrjdJi3wrIvqICdZ3h25k8tbd5OJGMr8hsLrYE";
     StringRequest stringRequest;
 
     public StringRequest sendRequest(int requestType,String serverUrl)
     {
 
 
-                    stringRequest= new StringRequest(Request.Method.POST, serverUrl,
+                    stringRequest= new StringRequest(Request.Method.GET, serverUrl,
                     new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonObject=new JSONObject(response);
+                            JSONArray jsonArray=new JSONArray(response);
                            // if(networkResponseListener!=null)
                             {
-                                networkResponseListener.parseJsonObjectOnResponse(jsonObject);
+                                networkResponseListener.parseJsonObjectOnResponse(jsonArray);
                             }
                         }
                         catch (JSONException e) {
                             e.printStackTrace();
-                            networkResponseListener.parseJsonObjectOnResponse(new JSONObject());
+                            networkResponseListener.parseJsonObjectOnResponse(new JSONArray());
                         }
 
                     }
@@ -61,16 +62,10 @@ public class RequestTransation {
                         public Map<String, String> getHeaders() throws AuthFailureError {
                             Map<String,String> headers = new HashMap<String, String>();
                             headers.put("Accept","application/json");
+                            headers.put("Authorization",token);
                             return headers;
                         }
-                        @Override
-                        protected Map<String, String> getParams() {
 
-                            Map<String,String> parms=new HashMap<String, String>();
-                            parms.put("email","sumit@neolen.com");
-                            parms.put("password","Sumit@123");
-                            return parms;
-                        }
         };
 
         return stringRequest;
@@ -82,7 +77,7 @@ public class RequestTransation {
 
 
     public interface NetworkResponseListener{
-        void parseJsonObjectOnResponse(JSONObject jsonObject);
+        void parseJsonObjectOnResponse(JSONArray jsonArray);
         void parseJsonObjectOnError(VolleyError error);
 
     }
