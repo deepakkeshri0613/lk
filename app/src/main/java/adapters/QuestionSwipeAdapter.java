@@ -1,4 +1,4 @@
-package com.deepak.lk;
+package adapters;
 
 import android.content.Context;
 import android.opengl.Visibility;
@@ -7,15 +7,21 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.deepak.lk.Question;
+import com.deepak.lk.R;
 
 import java.util.Collections;
 import java.util.List;
@@ -71,7 +77,8 @@ public class QuestionSwipeAdapter extends PagerAdapter implements View.OnClickLi
         View itemView =layoutInflater.inflate(R.layout.test_question_layout,container,false);
         TextView questionNumber=itemView.findViewById(R.id.question_number);
         WebView questionData=itemView.findViewById(R.id.question_data);
-
+       /* questionData.getSettings().setLoadWithOverviewMode(true);
+        questionData.getSettings().setUseWideViewPort(true);*/
 
         int questionNumberIndex=position+1;
         questionNumber.setText("Q "+questionNumberIndex);

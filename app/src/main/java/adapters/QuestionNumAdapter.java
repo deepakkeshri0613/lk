@@ -24,14 +24,14 @@ public class QuestionNumAdapter extends RecyclerView.Adapter<QuestionNumAdapter.
     Context context;
     boolean addOrRemoveItemClicked=false;
     public ClickListener clickListener;
-    List<Question> data= Collections.emptyList();
+    int numberOfQuestion=0;
 
     private LayoutInflater inflater;
-    public QuestionNumAdapter(Context context)
+    public QuestionNumAdapter(Context context,int numberOfQuestion)
     {
         inflater = LayoutInflater.from(context);
-       // this.data=data;
         this.context=context;
+        this.numberOfQuestion=numberOfQuestion;
     }
 
     public void setOnClickListener(ClickListener clickListener)
@@ -55,7 +55,7 @@ public class QuestionNumAdapter extends RecyclerView.Adapter<QuestionNumAdapter.
 
     @Override
     public int getItemCount() {
-        return 15;
+        return numberOfQuestion;
     }
 
     class QuestionNumViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -96,21 +96,21 @@ public class QuestionNumAdapter extends RecyclerView.Adapter<QuestionNumAdapter.
 
     public void removeItem(int position)
     {
-        if(data.size()!=0) {
+       /* if(data.size()!=0) {
             addOrRemoveItemClicked=true;
             data.remove(position);
             notifyItemRemoved(position);
         }
         else {
             Toast.makeText(context,"No item to remove",Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
     public void addItem(String title)
     {
         addOrRemoveItemClicked=true;
         //Information item=new Information();
         //data.add(item);
-        notifyItemInserted(data.size());
+       // notifyItemInserted(data.size());
     }
     public int getAdapterPosition()
     {

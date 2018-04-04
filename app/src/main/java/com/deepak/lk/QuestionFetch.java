@@ -1,14 +1,6 @@
 package com.deepak.lk;
 import android.content.Context;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
-import com.android.volley.ServerError;
-import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.deepak.lk.network.RequestTransation;
@@ -18,8 +10,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import adapters.QuestionSwipeAdapter;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -28,15 +21,22 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  */
 
 public class QuestionFetch implements RequestTransation.NetworkResponseListener{
+    QuestionSwipeAdapter questionSwipeAdapter;
     List<Question> questionList=new ArrayList<>();
+    Context context;
 
+    UiLoadListener uiLoadListener;
     public List<Question> getQuestionList() {
         return questionList;
     }
 
-
+ public void setUiLoadListener(UiLoadListener uiLoadListener)
+ {
+     this.uiLoadListener=uiLoadListener;
+ }
     public QuestionFetch() {
 
+        this.context=context;
         String serverUrl="http://dev.neolen.com/api/test/interface?test_id=1";
         RequestTransation requestTransation=new RequestTransation();
         StringRequest stringRequest=requestTransation.sendRequest(1,serverUrl);
@@ -68,7 +68,10 @@ public class QuestionFetch implements RequestTransation.NetworkResponseListener{
                     option[j] = "deepak" + (i + j);
                 item.setOptions(option);
                 questionList.add(item);
-
+                if(uiLoadListener!=null)
+                {
+                    uiLoadListener.UiLoad();
+                }
 
             }
         }
@@ -81,6 +84,10 @@ public class QuestionFetch implements RequestTransation.NetworkResponseListener{
     @Override
     public void parseJsonObjectOnError(VolleyError error) {
 
+    }
+
+    public interface UiLoadListener{
+        void UiLoad();
     }
 }
 

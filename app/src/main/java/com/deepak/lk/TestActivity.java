@@ -1,6 +1,5 @@
 package com.deepak.lk;
 
-import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,33 +13,27 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.deepak.lk.network.RequestTransation;
-
-import org.json.JSONArray;
 
 import adapters.QuestionMenuAdapter;
 import adapters.QuestionNumAdapter;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
+import adapters.QuestionSwipeAdapter;
 
 
 /**
  * Created by dsk on 12-Mar-18.
  */
 
-public class TestActivity extends AppCompatActivity implements QuestionNumAdapter.ClickListener,QuestionSwipeAdapter.ClickListener,
-        QuestionMenuAdapter.ClickListener,TestActivityDrawerFragment.TestActivityDrawerClosedListener{
+public class TestActivity extends AppCompatActivity implements QuestionNumAdapter.ClickListener, QuestionSwipeAdapter.ClickListener,
+        QuestionMenuAdapter.ClickListener,TestActivityDrawerFragment.TestActivityDrawerClosedListener,QuestionFetch.UiLoadListener{
 
     int currentPosition=0;
     int previousPosition=0;
     public QuestionFetch questionFetch;
     ViewPager viewPager;
     QuestionSwipeAdapter adapter;
-    Resources resources;
+    ProgressBar progressBar;
     QuestionNumAdapter questionNumAdapter;
     RecyclerView recyclerView;
     TestActivityDrawerFragment drawerFragment;
@@ -61,60 +54,10 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
         setTitle("Test");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_question_interface);
+        progressBar=findViewById(R.id.progress_bar);
         questionFetch=new QuestionFetch();
-        drawerFragment=(TestActivityDrawerFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.test_navigation_drawer_fragment);
-        drawerFragment.setUp((DrawerLayout) findViewById(R.id.test_drawer_layout),questionFetch.getQuestionList());
-        drawerFragment.setDrawerClosedListener(this);
 
-        resources=getResources();
-        recyclerView=findViewById(R.id.question_number_recycler_view);
-        questionNumAdapter=new QuestionNumAdapter(this);
-        questionNumAdapter.setOnClickListener(this);
-        recyclerView.setAdapter(questionNumAdapter);
-        final RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        recyclerView.setLayoutManager(layoutManager);
-        viewPager=findViewById(R.id.question_view_pager);
-        adapter=new QuestionSwipeAdapter(this,questionFetch.getQuestionList());
-        adapter.setOnClickListener(this);
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-
-                if (position >=previousPosition) {
-                    recyclerView.smoothScrollToPosition(position+1);
-                } else {
-                    if(position>0)
-                    recyclerView.smoothScrollToPosition(position-1);
-                }
-                previousPosition = position;
-
-                currentPosition=position;
-                RecyclerView.ViewHolder viewHolder=recyclerView.findViewHolderForAdapterPosition(position);
-
-                if(viewHolder!=null)
-                      viewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.goodgrey));
-                else
-                {
-                    recyclerView.smoothScrollToPosition(position);
-                   // viewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.redDark));
-
-                }
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        questionFetch.setUiLoadListener(this);
     }
 
     @Override
@@ -213,4 +156,66 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
     }
 
 
+
+    public void loadData()
+    {
+        progressBar.setVisibility(View.GONE);
+        drawerFragment=(TestActivityDrawerFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.test_navigation_drawer_fragment);
+        drawerFragment.setUp((DrawerLayout) findViewById(R.id.test_drawer_layout),questionFetch.getQuestionList());
+        drawerFragment.setDrawerClosedListener(this);
+        recyclerView=findViewById(R.id.question_number_recycler_view);
+        questionNumAdapter=new QuestionNumAdapter(this,questionFetch.getQuestionList().size());
+        questionNumAdapter.setOnClickListener(this);
+        recyclerView.setAdapter(questionNumAdapter);
+        final RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+        viewPager=findViewById(R.id.question_view_pager);
+        adapter=new QuestionSwipeAdapter(this,questionFetch.getQuestionList());
+        adapter.setOnClickListener(this);
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+
+                if (position >=previousPosition) {
+                    recyclerView.smoothScrollToPosition(position+1);
+                } else {
+                    if(position>0)
+                        recyclerView.smoothScrollToPosition(position-1);
+                }
+                previousPosition = position;
+
+                currentPosition=position;
+                RecyclerView.ViewHolder viewHolder=recyclerView.findViewHolderForAdapterPosition(position);
+
+                if(viewHolder!=null)
+                    viewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.goodgrey));
+                else
+                {
+                    recyclerView.smoothScrollToPosition(position);
+                    // viewHolder.itemView.setBackgroundColor(getResources().getColor(R.color.redDark));
+
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void UiLoad() {
+        loadData();
+    }
 }
