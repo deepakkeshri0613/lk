@@ -26,7 +26,7 @@ import adapters.QuestionSwipeAdapter;
  */
 
 public class TestActivity extends AppCompatActivity implements QuestionNumAdapter.ClickListener, QuestionSwipeAdapter.ClickListener,
-        QuestionMenuAdapter.ClickListener,TestActivityDrawerFragment.TestActivityDrawerClosedListener,QuestionFetch.UiLoadListener{
+        QuestionMenuAdapter.ClickListener,TestActivityDrawerFragment.TestActivityDrawerListener,QuestionFetch.UiLoadListener{
 
     int currentPosition=0;
     int previousPosition=0;
@@ -87,7 +87,6 @@ public class TestActivity extends AppCompatActivity implements QuestionNumAdapte
     @Override
     public void optionItemClick(View view,int currentIndex) {
         View solutionHolder=viewPager.findViewWithTag("solutionHolder"+viewPager.getCurrentItem());
-        Toast.makeText(this,""+currentIndex,Toast.LENGTH_SHORT).show();
         RecyclerView.ViewHolder questionNumViewHolder=recyclerView.findViewHolderForAdapterPosition(currentPosition);
         switch (view.getId())
         {

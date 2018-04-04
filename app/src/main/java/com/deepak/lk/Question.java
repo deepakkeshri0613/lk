@@ -14,6 +14,15 @@ public class Question {
     private int correctOptionIndex;
     private String solution;
 
+    private String marks;
+
+    public String getMarks() {
+        return marks;
+    }
+
+    public void setMarks(String marks) {
+        this.marks = marks;
+    }
 
     public int getCorrectOptionIndex() {
         return correctOptionIndex;

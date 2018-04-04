@@ -53,26 +53,31 @@ public class QuestionFetch implements RequestTransation.NetworkResponseListener{
     @Override
     public void parseJsonObjectOnResponse(JSONArray jsonArray) {
         try {
+
             for (int i = 0; i < jsonArray.length(); ++i) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String question = jsonObject.getString("en_value");
                 String option[] = new String[4];
                 Question item = new Question();
-
                 item.setQuestion(question);
                 item.setCorrectOptionIndex(i % 4);
-                item.setNegativeMarks("1/2");
+                item.setMarks(jsonObject.getString("marks"));
+                item.setNegativeMarks(jsonObject.getString("neg_marks"));
+                //item.setSolution(jsonObject.getString("en_sol"));
                 item.setSolution("deepak is name set by mom" + i);
-                item.setTypeOfQuestion("four");
-                for (int j = 0; j < 4; ++j)
-                    option[j] = "deepak" + (i + j);
+                item.setTypeOfQuestion(jsonObject.getString("type"));
+                option[0]=jsonObject.getString("en_a");
+                option[1]=jsonObject.getString("en_b");
+                option[2]=jsonObject.getString("en_c");
+                option[3]=jsonObject.getString("en_d");
                 item.setOptions(option);
                 questionList.add(item);
-                if(uiLoadListener!=null)
-                {
-                    uiLoadListener.UiLoad();
-                }
 
+
+            }
+            if(uiLoadListener!=null)
+            {
+                uiLoadListener.UiLoad();
             }
         }
         catch (JSONException e)

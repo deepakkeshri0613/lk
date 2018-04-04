@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,15 +27,16 @@ import adapters.QuestionMenuAdapter;
 public class TestActivityDrawerFragment extends Fragment implements QuestionMenuAdapter.ClickListener {
     private DrawerLayout mDrawerLayout;
     private RecyclerView recyclerView;
-    TestActivityDrawerClosedListener testActivityDrawerClosedListener;
+    TestActivityDrawerListener testActivityDrawerClosedListener;
     private QuestionMenuAdapter adapter;
     private ActionBarDrawerToggle mDrawerToggle;
-    List<Question> data=Collections.emptyList();
+   // public static List<Question> data=Collections.emptyList();
+
     public TestActivityDrawerFragment() {
         // Required empty public constructor
     }
 
-    public void setDrawerClosedListener(TestActivityDrawerClosedListener testActivityDrawerClosedListener)
+    public void setDrawerClosedListener(TestActivityDrawerListener testActivityDrawerClosedListener)
     {
         this.testActivityDrawerClosedListener=testActivityDrawerClosedListener;
     }
@@ -45,8 +47,7 @@ public class TestActivityDrawerFragment extends Fragment implements QuestionMenu
         // Inflate the layout for this fragment
 
         //data=new QuestionFetch().getQuestionList();
-        adapter=new QuestionMenuAdapter(getActivity(),data);
-        adapter.setOnClickListener(this);
+
         return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
     }
 
@@ -54,14 +55,15 @@ public class TestActivityDrawerFragment extends Fragment implements QuestionMenu
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.recyclerView);
-        recyclerView.setAdapter(adapter);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
     }
 
     public void setUp( DrawerLayout drawerLayout,List<Question> data) {
-
-        this.data=data;
+        adapter=new QuestionMenuAdapter(getActivity(),data);
+        //Toast.makeText(getActivity(),""+data.size(),Toast.LENGTH_SHORT).show();
+        adapter.setOnClickListener(this);
+        recyclerView.setAdapter(adapter);
         mDrawerLayout=drawerLayout;
         mDrawerToggle=new ActionBarDrawerToggle(getActivity(),drawerLayout,R.string.drawer_open
                 ,R.string.drawer_close)
@@ -100,7 +102,7 @@ public class TestActivityDrawerFragment extends Fragment implements QuestionMenu
 
     }
 
-    public interface TestActivityDrawerClosedListener
+    public interface TestActivityDrawerListener
     {
         void onDrawerClosed(View view,int position);
     }
